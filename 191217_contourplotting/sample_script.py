@@ -1,14 +1,15 @@
 #Import packages
 
 #Create functions
-def hello(name):
-	print('Hello',name)
+def add(number1, number2):
+	amount = number1 + number2 
+	print(amount)
 
 #Main script
 def main():
 	
-	name = 'Beyonce'
-	hello(name)
+	add(number1 = 5, number2 = 6)
+	add(number1 = 3, number2 = 7)
 
 #Run script
 if __name__ == '__main__':

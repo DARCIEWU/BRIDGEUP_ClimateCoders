@@ -9,12 +9,12 @@ import sst_anomaly_functions
 #Main script
 def main():
 
-	#Navigates to our data folder
-	dataPath = '/Users/hellenfellow/Dropbox (AMNH)/BridgeUP_ClimateCoders/Data'
+	
+	dataPath = '/Users/brownscholar/Dropbox/BridgeUP_ClimateCoders/Data'
 	os.chdir(dataPath)
-	data = Dataset('compressed_soda3.12.2_mn_ocean_reg_2015.nc')
+	data = Dataset('compressed_soda3.12.2_mn_ocean_reg_2013.nc')
 
-	# Setting variables
+	#
 	lon = data.variables['xt_ocean'][:]
 	lat = data.variables['yt_ocean'][:]
 	time = data.variables['time'][:]
@@ -22,16 +22,20 @@ def main():
 	temp = data.variables['temp'][:]
 	salt = data.variables['salt'][:]
 
-	#Slicing 
+	
 	condition_depth = depth <= 20
 	temp_sliced = temp[:,condition_depth,:,:]
+	
 
-	#Creates average temperature
+	
 	temp_mean = temp_sliced.mean()
 	
-	#Calculate anomalies
-	temp_anom = temp[:,condition_depth,:,:] - temp_mean
 
+	temp_anom = temp[:,condition_depth,:,:] - temp_mean
+	temp_anom_yr = temp_anom.mean(axis = 0)
+	print(temp_anom_yr.shape(axis = 3))
+	print(temp_anom_yr.mean(axis = 3))
 #Execute main script
 if __name__ == '__main__':
 	main()
+
