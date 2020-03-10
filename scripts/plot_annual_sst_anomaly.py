@@ -12,7 +12,11 @@ def main():
 	
 	dataPath = '/Users/brownscholar/Dropbox/BridgeUP_ClimateCoders/Data'
 	os.chdir(dataPath)
+<<<<<<< HEAD
 	data = Dataset('compressed_soda3.12.2_mn_ocean_reg_2013.nc')
+=======
+	data = Dataset('compressed_soda3.12.2_mn_ocean_reg_2017.nc')
+>>>>>>> 6b5fa747cbdf77c3660bfa173fe4f7c49eb59627
 
 	#
 	lon = data.variables['xt_ocean'][:]
@@ -38,6 +42,7 @@ def main():
 	
 
 	temp_anom = temp[:,condition_depth,:,:] - temp_mean
+<<<<<<< HEAD
 	print(temp_anom.shape)
 	temp_anom_yr = temp_anom.mean(axis = 0)
 	print(temp_anom_yr.shape)
@@ -47,6 +52,11 @@ def main():
 
 	print(temp_anom_yr.mean)
 	print(temp_anom_yr.shape)
+=======
+	#temp_anom = (12,2,330,720)
+	temp_anom_yr = temp_anom.mean(axis = 0)
+	print(temp_anom_yr.shape)
+>>>>>>> 6b5fa747cbdf77c3660bfa173fe4f7c49eb59627
 
 #Execute main script
 if __name__ == '__main__':
